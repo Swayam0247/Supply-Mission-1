@@ -4,6 +4,7 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+var engine, world;
 
 function preload()
 {
@@ -18,7 +19,14 @@ function setup() {
 	var o_options ={
 		isStatic : true
 	  }
-	packageSprite=createSprite(width/2, 80, 10,10,o_options);
+
+	var c_options ={
+		restitution : 0.5
+	  }  
+	engine = Engine.create();
+	world= engine.world;
+	  
+	packageSprite=createSprite(width/2, 80, 10,10,o_options,c_options);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
 	
@@ -59,9 +67,6 @@ function draw() {
 
 function keyPressed() {
  if (keyCode === DOWN_ARROW) {
-    Matter.Body.setStatic(packageSprite,false)  
+    Matter.Body.setStatic(packageBody,false)  
   }
 }
-
-
-
