@@ -19,10 +19,7 @@ function setup() {
 	var o_options ={
 		isStatic : true
 	  }
-
-	var c_options ={
-		restitution : 1
-	  }  
+ 
 	engine = Engine.create();
 	world= engine.world;
 	  
